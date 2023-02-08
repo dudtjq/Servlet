@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="java.util.ArrayList"%>
+    <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,16 +34,16 @@
 	<h3><%= animal.get(1) %> </h3>
 	
 	<%-- 메소드 만들기 --%>
+	<!-- <%!
+    // 필드
+    private int num = 10;
+
+    // 메소드
+    public String getHelloWorld() {
+        return "Hello World";
+    }
+%> -->
 	
-	<%
-		// Hello World 를 출력하는 메소드
-		public String getHelloWorld(){
-			
-		return "Hello World";
-		
-		}
-	%>
-		<h3><%= getHelloWorld() %> </h3>
 	
 	
 	
