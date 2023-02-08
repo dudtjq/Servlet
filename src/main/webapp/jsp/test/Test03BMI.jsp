@@ -16,12 +16,17 @@
 <body>
 
 
-	<h3>체격 조건 입력</h3>
-	<form method="get" action="/jsp/test/Test03.jsp">
-		<label><input type="text" name="height">cm</label>
-		<label><input type="text" name="weight">kg</label>
-		<button type="submit">계산</button>
-	</form>
+	<div class="container">
+		<h3>체격 조건 입력</h3>
+		<form method="get" action="/jsp/test/Test03.jsp">
+			<div class="d-flex col-5 align-items-end">
+			<input type="text" name="height" class="form-control">cm
+			<input type="text" name="weight" class="form-control ml-3">kg
+			<button type="submit" class="btn btn-info text-white ml-3">계산</button>
+			</div>
+		</form>
+	</div>
+	
 	
 	
 </body>
