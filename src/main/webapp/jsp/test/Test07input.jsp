@@ -20,8 +20,9 @@
 		
 		<form method="post" action="/jsp/test/Test07.jsp">
 		
-		<input type="text" name="menu" class="mr-2">
-		<label><input type="checkbox" name="point" value="point">4점 이하 제외</label><br>
+		<input type="text" name="menu">
+		<label><input type="checkbox" name="option" value="point">4점 이하 제외</label><br>
+		
 		<button type="submit" class="btn btn-success">검색</button>
 		
 		</form>

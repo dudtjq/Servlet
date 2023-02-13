@@ -32,8 +32,9 @@
     map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
     list.add(map);
 	
-	
-	
+    String name = request.getParameter("name");
+	String menu = request.getParameter("menu");
+	String option = request.getParameter("option");
 	%>
 
 	<table class="table text-center">
@@ -47,15 +48,18 @@
 			
 			<tbody>
 			
-				<%
-					String name = request.getParameter("name");
-					String menu = request.getParameter("menu");
-					String point = request.getParameter("point");
-				%>
 				
-				
+				<!-- 각각 하나의 객체만 꺼내서 해결, 키를 알고 쓴다라는 가정하에 get 활용-->
 				<%
-				for(Map<String, Object> store:list)  { %>
+				for(Map<String, Object> store:list)  { 
+				
+					if(menu.equals(store.get("menu"))){
+						
+						Double point = (Double)store.get("point");
+						// 포인트가 체크된 상황이면 4.0이상만 보여주기
+						// 포인트가 체크가 안된 상태 (option = null) 일때 보여준다.
+						if(option == null || (option.equals("point") && point > 4.0)) {
+					%>
 					
 				<tr>
 					<td><%= store.get("menu") %></td>
@@ -64,7 +68,11 @@
 				</tr>
 					
 				
-				<% } %>
+				<% 
+						}
+					}
+				} 
+				%>
 				
 				
 			</tbody>	
