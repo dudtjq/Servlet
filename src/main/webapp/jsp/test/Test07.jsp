@@ -15,6 +15,8 @@
 </head>
 <body>
 
+
+
 	<%
 	List<Map<String, Object>> list = new ArrayList<>();
     Map<String, Object> map = new HashMap<String, Object>() {{ put("name", "버거킹"); put("menu", "햄버거"); put("point", 4.3); } };
@@ -38,7 +40,7 @@
 	%>
 
 	<table class="table text-center">
-		<thead>
+			<thead>
 			<tr>
 				<th>메뉴</th>
 				<th>상호</th>
