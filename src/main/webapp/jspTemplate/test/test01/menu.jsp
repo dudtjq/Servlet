@@ -55,3 +55,9 @@ String category = request.getParameter("category");
 				<li class="nav-item"><a class="nav-link text-white font-weight-bold" href="/jspTemplate/test/test01/test01.jsp?category=스포츠">스포츠</a>
 			</ul>
 		</nav>
+		
+		
+		
+		
+		
+		

@@ -16,6 +16,7 @@
 </head>
 <body>
 		<% List<Map<String, Object>> list = new ArrayList<>();
+		
 	    Map<String, Object> map = new HashMap<String, Object>() {
 	        { 
 	            put("id", 1000);

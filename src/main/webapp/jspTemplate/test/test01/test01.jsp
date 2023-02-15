@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Sk broadband IPTV</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -57,7 +57,7 @@
     list.add(map);
     
     String category = request.getParameter("category");
-    String option = request.getParameter("option");
+    
 %>
 
 
@@ -65,6 +65,7 @@
 		<jsp:include page="header.jsp" />
 		
 		<jsp:include page="menu.jsp" />
+		
 		<section class="contents">
 			<table class="table text-center">
 				<thead>
@@ -78,12 +79,10 @@
 				
 					<%for(Map<String, String> channel:list){ 
 						
-						//if(category.equals(channel.get("category"))){
-							// null은 객체가 아니기 때문에 equals가 아닌 등호(==)로 비교한다! 
-							if(category == (null) || category.equals(channel.get("category"))){
+						// null은 객체가 아니기 때문에 equals가 아닌 등호(==)로 비교한다! 
+						if(category == (null) || category.equals(channel.get("category"))){
 					%>
 					
-						
 					<tr>
 						<td><%= channel.get("ch") %></td>
 						<td><%= channel.get("name") %></td>
@@ -91,13 +90,13 @@
 					</tr>
 					
 					<% 
-							}
-						// }
-					} 
+						}
+					}
 					%>
 				</tbody>
 			</table>
 		</section>
+		
 	<jsp:include page="footer.jsp" />
 	</div>
 
