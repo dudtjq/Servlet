@@ -100,10 +100,23 @@
     
     String title = request.getParameter("title");
     
-    int id = Integer.parseInt(request.getParameter("id")); 
+    String id = request.getParameter("id");
+    
+    int id1 = Integer.parseInt(request.getParameter("id")); 
+    
+    int listId1 = 0;
+    if(id != null){
+    	listId1 = Integer.parseInt(id);
+    }
+    
+    
+
+    int listId = Integer.parseInt(request.getParameter("id")); 
     
 %>
 
+	<!-- 나중에 다시 풀어보기 -->
+	
 	
 	<div id="wrap">
 		<jsp:include page="header.jsp" />
@@ -111,11 +124,22 @@
 		<jsp:include page="nav.jsp" />
 		
 		<% for(Map<String, Object> list:musicList) { 
-		
-			Integer listId = (Integer)list.get("id");
-			if(id == listId){
+			
+			// 시간 계산 (분 : 초)
+			int time = (Integer)list.get("time");
+			
+			int minute = time / 60;
+			int second = time % 60;
+			
+			// id가 전달되면, id 가 일치하는 노래보여주기
+			// 제목이 전달되면, 제목이 일치하는 노래 보여주기
+			
+			Integer musicId = (Integer)list.get("id");
+			if((id != null && musicId == id1) || 
+				(title != null && title.equals(list.get("title")))
+				) {
 				
-			//	if(title.equals(list.get("title"))){
+			
 		%>
 		
 		<section class="contents">
@@ -125,10 +149,12 @@
 					<div class="ml-2">
 						<div class="display-4"><%= list.get("title") %></div>
 						<div class="small font-weight-bold text-success"><%= list.get("singer") %></div>
-						<div class="small text-secondary">앨범   <%= list.get("title") %></div>
-						<div class="small text-secondary">재생시간   <%= list.get("time") %></div>
-						<div class="small text-secondary">작곡가   <%= list.get("composer") %></div>
-						<div class="small text-secondary">작사가 <%= list.get("lyricist") %></div>
+						<div class="mt-2">
+							<div class="small text-secondary">앨범   <%= list.get("title") %></div>
+							<div class="small text-secondary">재생시간   <%=minute %> : <%= second %></div>
+							<div class="small text-secondary">작곡가   <%= list.get("composer") %></div>
+							<div class="small text-secondary">작사가 <%= list.get("lyricist") %></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -140,7 +166,7 @@
 		</section>
 		
 		<% 
-			//	}
+			
 			}	
 		}
 		 %>

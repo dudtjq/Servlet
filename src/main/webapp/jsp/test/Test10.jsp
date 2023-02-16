@@ -20,20 +20,59 @@
 		<%
 			Calendar now = Calendar.getInstance();
 		
+			Date today = new Date();
+		
+			SimpleDateFormat dayFormatter = new SimpleDateFormat("yyyy-MM");
+			
+			String dayString = dayFormatter.format(today);
+			//현재시점
 			int year = now.get(Calendar.YEAR);
 			int month = now.get(Calendar.MONTH);
 			
-			//  해당하는 달의 요일 얻어내기 
+			//  그에 해당하는 달의 요일 얻어내기 
 			now.set(year, month, 1);
 			int whatDay = now.get(Calendar.DAY_OF_WEEK);
 			// 이번달이 몇일까지 있는지 얻어내기
-			int today = now.getActualMaximum(Calendar.DATE);
-			
-		
+			int maxDay = now.getActualMaximum(Calendar.DATE);
 		
 		%>
 		
-
+		<div class="container">
+			<table class="text-center table">
+				<h1 class="text-center"><%= dayString %></h1>				
+				<thead>
+					<tr>
+						<th>일</th>
+						<th>월</th>
+						<th>화</th>
+						<th>수</th>
+						<th>목</th>
+						<th>금</th>
+						<th>토</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<%	// 해당하는 달이 몇일 까지 있는지
+							for(int i = 1; i < whatDay; i++){
+						%>
+							<td><%= i %></td>
+							
+						<% 
+						//	if(i == 7)
+							
+							} %>
+					
+					</tr>
+				</tbody>
+				
+			
+	
+			</table>
+		
+		
+		</div>
+		
 
 
 </body>
