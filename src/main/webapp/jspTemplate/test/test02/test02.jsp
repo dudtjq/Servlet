@@ -123,6 +123,7 @@
 			</div>
 			<article class="singList">
 				<h3 class="font-text-bold mt-2">곡 목록</h3>
+				
 				<table class="table text-center">
 				<thead>
 					<tr>
