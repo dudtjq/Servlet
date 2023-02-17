@@ -102,16 +102,12 @@
     
     String id = request.getParameter("id");
     
-    int id1 = Integer.parseInt(request.getParameter("id")); 
-    
-    int listId1 = 0;
+    int listId = 0;
     if(id != null){
-    	listId1 = Integer.parseInt(id);
+    	listId = Integer.parseInt(id);
     }
     
-    
 
-    int listId = Integer.parseInt(request.getParameter("id")); 
     
 %>
 
@@ -135,7 +131,7 @@
 			// 제목이 전달되면, 제목이 일치하는 노래 보여주기
 			
 			Integer musicId = (Integer)list.get("id");
-			if((id != null && musicId == id1) || 
+			if((id != null && listId == musicId) || 
 				(title != null && title.equals(list.get("title")))
 				) {
 				
