@@ -35,7 +35,7 @@ public class Ex02InsertController extends HttpServlet{
 	 			+ "VALUE\r\n"
 	 			+ "('" + name + "', '" + birthday + "', '" + email + "', now(), now());";
 	 	
-	 	int count = mysqlService.update(query);
+	 	// int count = mysqlService.update(query);
 	 	
 	 	// redirect를 사용하여 사용하지 않는다.
 //	 	out.println("수행결과 : " + count);

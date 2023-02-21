@@ -22,7 +22,7 @@
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
-		String query = "SELECT  `name`, `url` FROM `email` ORDER BY `id` DESC;";
+		String query = "SELECT * FROM `email`";
 		ResultSet resultSet = mysqlService.select(query);
 	
 	%>
@@ -32,13 +32,16 @@
 
 	<div class="container">
 	
+		<h1 class="text-center">즐겨찾기 목록</h1>
+	
 		<table class="table text-center">
-		<thead>
-			<tr>
-				<th>사이트</th>
-				<th>사이트 주소</th>
-			</tr>
-		</thead>
+			<thead>
+				<tr>
+					<th>사이트</th>
+					<th>사이트 주소</th>
+					<th></th>
+				</tr>
+			</thead>
 		<tbody>
 		
 			<% while(resultSet.next()) { %>
@@ -46,7 +49,8 @@
 			<tr>
 				<td><%= resultSet.getString("name") %></td>
 				<td><a target="_blank" href="<%= resultSet.getString("url") %>"><%= resultSet.getString("url") %></a></td>
-			</tr>
+				<td><a class="btn btn-info btn-sm" href="/database/test02/delete?id=<%= resultSet.getInt("id")%>">삭제</a></td>
+				</tr>
 			
 			<% } %>
 			

@@ -14,7 +14,7 @@ import com.ckgagu.servlet.servlet.common.MysqlService;
 public class Test02MysqlService extends HttpServlet{
 	
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 //		response.setContentType("text/plain");
 //		
@@ -22,7 +22,7 @@ public class Test02MysqlService extends HttpServlet{
 	 	
 	 	String name = request.getParameter("name");
 	 	String url = request.getParameter("url");
-	 	int id = Integer.parseInt(request.getParameter("id"));
+	 	// int id = Integer.parseInt(request.getParameter("id"));
 	 	
 	 	MysqlService mysqlservice = MysqlService.getInstance();
 	 	mysqlservice.connect();
@@ -39,6 +39,8 @@ public class Test02MysqlService extends HttpServlet{
 //	 	int count = mysqlservice.update(query);
 //	 		 	
 //	 	out.println("수행결과 : " + count);
+	 	
+	 	mysqlservice.update(query);
 	 	
 	 	mysqlservice.disconnect();
 	 	

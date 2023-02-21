@@ -24,9 +24,6 @@ public class Ex02DeleteController extends HttpServlet{
 		
 		String query = "DELETE FROM `new_user` WHERE `id` = " + id + ";";
 		
-		// 수행 시키기
-		int count = mysqlService.update(query);
-		
 		mysqlService.disconnect();
 		
 		response.sendRedirect("/database/ex/ex02.jsp");
